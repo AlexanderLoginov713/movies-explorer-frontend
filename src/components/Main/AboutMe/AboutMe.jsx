@@ -1,6 +1,6 @@
 import React from "react";
 import "./AboutMe.css";
-import photo from "../../images/photo.png";
+import photo from "../../../images/photo.png";
 
 export default function AboutMe() {
   return (
@@ -10,7 +10,7 @@ export default function AboutMe() {
         <div className="about-me__bio-container">
           <div className="about-me__bio">
             <h3 className="about-me__name">Александр Логинов</h3>
-            <p className="about-me__age">Фронтенд-разработчик, 30 лет</p>
+            <p className="about-me__age">Фронтенд-разработчик, 40 лет</p>
             <p className="about-me__text">
               Мне интересна веб-разработка, потому что эта профессия предоставляет
               бесконечные возможности для профессионального роста, кроме того, здесь

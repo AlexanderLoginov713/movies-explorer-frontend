@@ -72,7 +72,7 @@
   content: '';
   width: 24px;
   height: 18px;
-  background-image: url('../../images/link-arrow.svg');
+  background-image: url('../../../images/link-arrow.svg');
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -81,7 +81,7 @@
   transform: translateY(-50%);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 790px) {
   .portfolio__container {
     padding: 0 50px 90px;
   }

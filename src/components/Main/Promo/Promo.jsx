@@ -2,7 +2,7 @@ import React from "react";
 import "./Promo.css";
 import logo from '../../../images/landing-logo.svg';
 
-function Promo() {
+export default function Promo() {
   return (
     <section className="promo">
       <div className="promo__container">
@@ -30,5 +30,3 @@ function Promo() {
     </section>
   );
 }
-
-export default Promo;

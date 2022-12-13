@@ -64,7 +64,7 @@
   padding-left: 15px;
   padding-right: 34px;
   min-height: 30px;
-  box-shadow: 0 3px 14px rgba(0, 0, 0, .08);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, .07);
   border-radius: 40px;
 }
 
@@ -82,7 +82,7 @@
   background-position: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 790px) {
   .navigation__link {
     font-weight: 500;
     font-size: 18px;
