@@ -1,11 +1,11 @@
 .hamburger-button {
+   width: 28px;
+  height: 20px;
   display: none;
   align-items: center;
   position: absolute;
   top: 27px;
   right: 38px;
-  width: 28px;
-  height: 20px;
   cursor: pointer;
   z-index: 5;
   transition: all .3s ease;

@@ -82,7 +82,7 @@
   background-position: center;
 }
 
-@media screen and (max-width: 7680px) {
+@media screen and (max-width: 768px) {
   .navigation__link {
     font-weight: 500;
     font-size: 18px;
