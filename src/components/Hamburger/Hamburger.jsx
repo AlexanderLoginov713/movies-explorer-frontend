@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export default function Hamburger({ isBurgerOpened, onClickBurger }) {
 
-  const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 790px)` });
 
   function handleOnClickBurger() {
     onClickBurger();
