@@ -5,6 +5,7 @@ import Movies from '../Movies/Movies.jsx';
 import Footer from '../Footer/Footer';
 import './app.css';
 import { Route, Routes } from 'react-router-dom';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function app() {
   return (
@@ -17,7 +18,7 @@ function app() {
           <Route exact path='/' element={<Main />} />
 
           <Route exact path='/movies' element={<Movies />} />
-
+          <Route exact path='/saved-movies' element={<SavedMovies />} />
           <Route exact path='/' element={<Footer />} />
           <Route exact path='/movies' element={<Footer />} />
           <Route exact path='/saved-movies' element={<Footer />} />
