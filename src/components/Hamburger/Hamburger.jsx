@@ -1,3 +1,4 @@
+import React from "react";
 import './Hamburger.css';
 import { useMediaQuery } from 'react-responsive';
 import { useEffect } from 'react';
