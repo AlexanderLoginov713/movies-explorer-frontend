@@ -11,7 +11,7 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
 
   return (
     <>
-      {!loggedIn ? (
+      {loggedIn ? (
         <nav className="navigation">
           <ul className="navigation__list">
             <li>
@@ -32,23 +32,23 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
           <ul className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerOpened ? 'opened' : 'closed'}`} onClick={handleClickOverlay}>
             {isBurgerOpened && (
               <li className="navigation__item">
-                <NavLink exact to='/' className='navigation__link' activeClassName={activeLink}>
+                <NavLink exact to='/' className='navigation__link' activeclassname={activeLink}>
                   Главная
                 </NavLink>
               </li>
             )}
             <li className="navigation__item">
-              <NavLink to='/movies' className='navigation__link' activeClassName={activeLink}>
+              <NavLink to='/movies' className='navigation__link' activeclassname={activeLink}>
                 Фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
-              <NavLink to='/saved-movies' className='navigation__link' activeClassName={activeLink}>
+              <NavLink to='/saved-movies' className='navigation__link' activeclassname={activeLink}>
                 Сохранённые фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
-              <NavLink to='/profile' className='navigation__link navigation__link_type_account' activeClassName={activeLink}>
+              <NavLink to='/profile' className='navigation__link navigation__link_type_account' activeclassname={activeLink}>
                 Аккаунт
               </NavLink>
             </li>

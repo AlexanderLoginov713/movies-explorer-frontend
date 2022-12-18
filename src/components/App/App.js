@@ -1,11 +1,13 @@
 import React from 'react';
 import Main from "../Main/Main";
-import Header from '../Header/Header';
-import Movies from '../Movies/Movies.jsx';
-import Footer from '../Footer/Footer';
+
 import './app.css';
 import { Route, Routes } from 'react-router-dom';
+
+import Header from '../Header/Header';
+import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
 
 function app() {
   return (
@@ -19,13 +21,11 @@ function app() {
 
           <Route exact path='/movies' element={<Movies />} />
           <Route exact path='/saved-movies' element={<SavedMovies />} />
-          <Route exact path='/' element={<Footer />} />
-          <Route exact path='/movies' element={<Footer />} />
-          <Route exact path='/saved-movies' element={<Footer />} />
+          <Route exact path='/profile' element={<Profile />} />
 
         </Routes>
 
-      <Footer />
+
     </section >
   );
 }

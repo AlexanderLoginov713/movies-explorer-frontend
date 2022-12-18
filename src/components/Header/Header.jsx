@@ -3,14 +3,13 @@ import './Header.css';
 import Navigation from '../Navigation/Navigation.jsx';
 import logo from '../../images/logo.svg';
 
-function Header() {
+function Header({ loggedIn, onClickBurger, isBurgerOpened }) {
   const location = useLocation();
 
   return (
     <header
-      className={`header header_theme_${
-        location.pathname === '/' ? 'dark' : 'bright'
-      }`}
+      className={`header header_theme_${location.pathname === '/' ? 'dark' : 'bright'
+        }`}
     >
       <div className="header__container">
         <Link to='/' className='header__link'>
