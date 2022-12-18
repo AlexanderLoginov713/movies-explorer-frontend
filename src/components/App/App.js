@@ -8,6 +8,7 @@ import Header from '../Header/Header';
 import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
+import NotFound from '../NotFound/NotFound';
 
 function app() {
   return (
@@ -16,14 +17,16 @@ function app() {
 
       <Header />
 
-        <Routes>
-          <Route exact path='/' element={<Main />} />
+      <Routes>
+        <Route exact path='/' element={<Main />} />
 
-          <Route exact path='/movies' element={<Movies />} />
-          <Route exact path='/saved-movies' element={<SavedMovies />} />
-          <Route exact path='/profile' element={<Profile />} />
+        <Route exact path='/movies' element={<Movies />} />
+        <Route exact path='/saved-movies' element={<SavedMovies />} />
+        <Route exact path='/profile' element={<Profile />} />
+        <Route path='*' element={<NotFound />} />
 
-        </Routes>
+
+      </Routes>
 
 
     </section >
