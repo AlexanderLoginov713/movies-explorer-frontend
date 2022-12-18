@@ -11,7 +11,7 @@ import Header from "../Header/Header";
 export default function Main() {
   return (
     <main className="main">
-       <Header />
+      <Header />
       <Promo />
       <AboutProject />
       <Techs />

@@ -4,12 +4,12 @@ import Main from "../Main/Main";
 import './app.css';
 import { Route, Routes } from 'react-router-dom';
 
-import Header from '../Header/Header';
 import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function app() {
   return (
@@ -17,8 +17,10 @@ function app() {
     <section className="app">
 
       <Routes>
-        <Route exact path='/signup' element={<Register />} />
-        <Route exact path='/' element={<Main />} />
+         <Route exact path='/' element={<Main />} />
+         <Route exact path='/signup' element={<Register />} />
+         <Route exact path='/signin' element={<Login />} />
+
 
         <Route exact path='/movies' element={<Movies />} />
         <Route exact path='/saved-movies' element={<SavedMovies />} />
