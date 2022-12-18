@@ -9,15 +9,15 @@ import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
+import Register from '../Register/Register';
 
 function app() {
   return (
 
     <section className="app">
 
-      <Header />
-
       <Routes>
+        <Route exact path='/signup' element={<Register />} />
         <Route exact path='/' element={<Main />} />
 
         <Route exact path='/movies' element={<Movies />} />
