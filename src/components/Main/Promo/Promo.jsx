@@ -14,7 +14,7 @@ export default function Promo() {
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
           <a
-            href="#"
+            href="https://practicum.yandex.ru"
             target="_blank"
             rel="noopener noreferrer"
             className="promo__link"

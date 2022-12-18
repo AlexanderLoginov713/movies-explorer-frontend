@@ -3,11 +3,6 @@ import { Link, NavLink } from 'react-router-dom';
 import Hamburger from '../Hamburger/Hamburger.jsx';
 
 export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) {
-  const activeLink = `navigation__link_active_${isBurgerOpened ? 'mobile' : 'desktop'}`;
-
-  function handleClickOverlay(e) {
-    e.stopPropagation();
-  }
 
   return (
     <>
@@ -29,26 +24,26 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
       ) : (
         <nav className={`navigation navigation_state_${isBurgerOpened ? 'opened' : 'closed'}`} onClick={isBurgerOpened ? onClickBurger : undefined}>
           <Hamburger isBurgerOpened={isBurgerOpened} onClickBurger={onClickBurger} />
-          <ul className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerOpened ? 'opened' : 'closed'}`} onClick={handleClickOverlay}>
+          <ul className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerOpened ? 'opened' : 'closed'}`} >
             {isBurgerOpened && (
               <li className="navigation__item">
-                <NavLink exact to='/' className='navigation__link' activeclassname={activeLink}>
+                <NavLink exact to='/' className='navigation__link'>
                   Главная
                 </NavLink>
               </li>
             )}
             <li className="navigation__item">
-              <NavLink to='/movies' className='navigation__link' activeclassname={activeLink}>
+              <NavLink to='/movies' className='navigation__link'>
                 Фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
-              <NavLink to='/saved-movies' className='navigation__link' activeclassname={activeLink}>
+              <NavLink to='/saved-movies' className='navigation__link'>
                 Сохранённые фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
-              <NavLink to='/profile' className='navigation__link navigation__link_type_account' activeclassname={activeLink}>
+              <NavLink to='/profile' className='navigation__link navigation__link_type_account'>
                 Аккаунт
               </NavLink>
             </li>

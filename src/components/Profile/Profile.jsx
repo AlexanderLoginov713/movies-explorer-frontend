@@ -1,12 +1,17 @@
-import React from "react";
+import { React, useState } from "react";
 import Header from "../Header/Header";
 import './Profile.css';
 
 export default function Profile() {
 
+  const [isBurgerOpened, setIsBurgerOpened] = useState(false);
+  function onClickBurger() {
+    setIsBurgerOpened(!isBurgerOpened);
+  }
+
   return (
     <>
-      <Header />
+      <Header onClickBurger={onClickBurger} isBurgerOpened={isBurgerOpened} />
       <main className="profile">
         <form className="profile__form" name="profile" noValidate >
           <h1 className="profile__title">{`Привет, Виталий!`}</h1>

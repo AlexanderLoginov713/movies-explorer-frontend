@@ -15,7 +15,10 @@ function Header({ loggedIn, onClickBurger, isBurgerOpened }) {
         <Link to='/' className='header__link'>
           <img src={logo} alt="Логотип" />
         </Link>
-        <Navigation />
+        <Navigation
+         loggedIn={loggedIn}
+         onClickBurger={onClickBurger}
+         isBurgerOpened={isBurgerOpened} />
       </div>
     </header>
   );

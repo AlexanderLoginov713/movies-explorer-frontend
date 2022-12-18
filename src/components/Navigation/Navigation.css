@@ -53,7 +53,7 @@
 .navigation__link_signin {
   color: black !important;
   padding: 8px 20px;
-  background-color: #3ddc84;
+  background-color: #2BE080;
   border-radius: 3px;
 }
 
@@ -96,7 +96,7 @@
     flex-direction: column;
     height: 100vh;
     width: 67%;
-    background-color: #202020;
+    background-color: #FFFFFF;
   }
 
   .navigation__link_type_account {

@@ -1,7 +1,6 @@
-import React from "react";
+import  {React, useEffect }from "react";
 import './Hamburger.css';
 import { useMediaQuery } from 'react-responsive';
-import { useEffect } from 'react';
 
 export default function Hamburger({ isBurgerOpened, onClickBurger }) {
 
