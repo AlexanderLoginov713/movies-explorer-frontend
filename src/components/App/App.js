@@ -1,7 +1,7 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import Main from "../Main/Main";
 
-import './app.css';
+import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies';
