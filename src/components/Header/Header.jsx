@@ -16,9 +16,9 @@ function Header({ loggedIn, onClickBurger, isBurgerOpened }) {
           <img src={logo} alt="Логотип" />
         </Link>
         <Navigation
-         loggedIn={loggedIn}
-         onClickBurger={onClickBurger}
-         isBurgerOpened={isBurgerOpened} />
+          loggedIn={loggedIn}
+          onClickBurger={onClickBurger}
+          isBurgerOpened={isBurgerOpened} />
       </div>
     </header>
   );
