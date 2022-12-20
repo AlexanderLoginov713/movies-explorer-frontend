@@ -10,7 +10,7 @@ import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 
-export default function app() {
+export default function App() {
 
   return (
 
