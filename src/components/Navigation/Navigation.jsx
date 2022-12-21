@@ -1,8 +1,9 @@
 import './Navigation.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import Hamburger from '../Hamburger/Hamburger.jsx';
 
 export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) {
+  const location = useLocation();
 
   return (
     <>
@@ -33,17 +34,20 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
               </li>
             )}
             <li className="navigation__item">
-              <NavLink to='/movies' className='navigation__link'>
+              <NavLink to='/movies' className={`navigation__link navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
+        }`}>
                 Фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
-              <NavLink to='/saved-movies' className='navigation__link'>
+              <NavLink to='/saved-movies' className={`navigation__link navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
+        }`}>
                 Сохранённые фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
-              <NavLink to='/profile' className='navigation__link navigation__link_type_account'>
+              <NavLink to='/profile' className={`navigation__link navigation__link_type_account navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
+        }`}>
                 Аккаунт
               </NavLink>
             </li>

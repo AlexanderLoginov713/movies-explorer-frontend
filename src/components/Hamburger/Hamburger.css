@@ -1,5 +1,5 @@
 .hamburger-button {
-   width: 28px;
+  width: 28px;
   height: 20px;
   display: none;
   align-items: center;
@@ -12,6 +12,12 @@
   border: none;
   background: none;
   padding: 0;
+}
+
+.hamburger-button_off_color_white,
+.hamburger-button_off_color_white::before,
+.hamburger-button_off_color_white::after {
+  background-color: #fff !important;
 }
 
 .hamburger-button:focus-visible {
@@ -55,7 +61,7 @@
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: #000000;
+  background-color: #000000 !important;
   transform: rotate(45deg);
   transition: all .3s ease;
 }
