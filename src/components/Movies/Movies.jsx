@@ -85,7 +85,7 @@ export default function Movies() {
       <Header onClickBurger={onClickBurger} isBurgerOpened={isBurgerOpened} />
       <SearchForm />
       <MoviesCardList
-      cards={initialMovies}
+        cards={initialMovies}
       />
       <Footer />
     </main>
