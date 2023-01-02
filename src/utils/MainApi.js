@@ -1,19 +1,13 @@
-import { BASE_URL } from '../utils/constants';
+import { BASE_URL } from '../../src/utils/constants';
 
 class MainApi {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
   }
 
-  _handleResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return res.json()
-      .then((err) => {
-        err.statusCode = res.status;
-        return Promise.reject(err);
-      })
+  async _handleResponse(res) {
+    const result = await res.json();
+    return res.ok ? result : Promise.reject(result.message);
   }
 
   getSavedMovies() {
@@ -21,8 +15,9 @@ class MainApi {
       headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
+      credentials: 'include'
     })
-      .then(res => this._requestResult(res));
+      .then(res => this._handleResponse(res));
   }
 
   createUser(name, email, password) {
@@ -34,26 +29,34 @@ class MainApi {
         email,
         password,
       }),
+      credentials: 'include'
     })
-      .then(res => this._requestResult(res));
+      .then(res => this._handleResponse(res));
   }
 
   login(email, password) {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ email, password }),
+      credentials: 'include'
     })
-      .then(res => this._requestResult(res));
+      .then(res => this._handleResponse(res));
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      credentials: 'include',
       headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
       },
     })
-      .then(res => this._requestResult(res));
+      .then(res => this._handleResponse(res));
   }
 
   patchProfile(name, email) {
@@ -64,19 +67,32 @@ class MainApi {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, email }),
+      credentials: 'include'
     })
-      .then(res => this._requestResult(res));
+      .then(res => this._handleResponse(res));
   }
 
   postMovie(data) {
     return fetch(`${this._baseUrl}/movies`, {
-      credentials: 'include',
       method: 'POST',
       headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        'Content-Type': 'application/json'
+        "Accept": "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        country: data.country,
+        director: data.director,
+        duration: data.duration,
+        year: data.year,
+        description: data.description,
+        image: data.image,
+        trailerLink: data.trailerLink,
+        thumbnail: data.thumbnail,
+        movieId: data.id,
+        nameRU: data.nameRU,
+        nameEN: data.nameEN,
+      }),
+      credentials: 'include',
     })
       .then((res) => this._handleResponse(res));
   }
@@ -87,8 +103,9 @@ class MainApi {
       headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
+      credentials: 'include'
     })
-      .then(res => this._requestResult(res));
+      .then(res => this._handleResponse(res));
   }
 }
 

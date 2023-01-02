@@ -7,7 +7,7 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
 
   return (
     <>
-      {loggedIn ? (
+      {!loggedIn ? (
         <nav className="navigation">
           <ul className="navigation__list">
             <li>
@@ -28,26 +28,26 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
           <ul className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerOpened ? 'opened' : 'closed'}`} >
             {isBurgerOpened && (
               <li className="navigation__item">
-                <NavLink exact to='/' className='navigation__link'>
+                <NavLink to='/' className='navigation__link'>
                   Главная
                 </NavLink>
               </li>
             )}
             <li className="navigation__item">
               <NavLink to='/movies' className={`navigation__link navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
-        }`}>
+                }`}>
                 Фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
               <NavLink to='/saved-movies' className={`navigation__link navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
-        }`}>
+                }`}>
                 Сохранённые фильмы
               </NavLink>
             </li>
             <li className="navigation__item">
               <NavLink to='/profile' className={`navigation__link navigation__link_type_account navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
-        }`}>
+                }`}>
                 Аккаунт
               </NavLink>
             </li>

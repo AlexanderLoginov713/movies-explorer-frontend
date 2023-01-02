@@ -1,12 +1,16 @@
 import React from "react";
-import { useState, useEffect } from 'react';
-import useFormWithValidation from "../../../hooks/useFormValidation";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import './SearchForm.css';
+import { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import useFormWithValidation from "../../../hooks/useFormWithValidation";
+import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 
-export default function SearchForm({ handleSearchSubmit }) {
+export default function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
+  const currentUser = useContext(CurrentUserContext);
+  const location = useLocation();
+  const { values, handleChange, isValid, setIsValid } = useFormWithValidation();
 
-  const { values, handleChange, isValid } = useFormWithValidation();
   const [errorQuery, setErrorQuery] = useState('');
 
   function handleSubmit(e) {
@@ -18,6 +22,14 @@ export default function SearchForm({ handleSearchSubmit }) {
     setErrorQuery('')
   }, [isValid]);
 
+  useEffect(() => {
+    if (location.pathname === '/movies' && localStorage.getItem(`${currentUser.email} - movieSearch`)) {
+      const searchValue = localStorage.getItem(`${currentUser.email} - movieSearch`);
+      values.search = searchValue;
+      setIsValid(true);
+    }
+  }, [currentUser]);
+
   return (
     <section className="search">
       <div className="search__container">
@@ -28,14 +40,14 @@ export default function SearchForm({ handleSearchSubmit }) {
             type="text"
             placeholder="Фильм"
             autoComplete="off"
-            required
             value={values.search || ''}
             onChange={handleChange}
+            required
           />
           <span className="search__error">{errorQuery}</span>
           <button className="search__button" type="submit"></button>
         </form>
-        <ToggleSwitch />
+        <ToggleSwitch shortMovies={shortMovies} handleShortFilms={handleShortFilms} />
       </div>
     </section>
   )

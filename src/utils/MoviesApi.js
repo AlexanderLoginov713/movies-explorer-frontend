@@ -1,4 +1,4 @@
-import { MOVIES_URL } from './constants';
+import { MOVIES_URL } from '../utils/constants';
 
 class MoviesApi {
   constructor({ baseUrl }) {
@@ -21,7 +21,7 @@ class MoviesApi {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
-    .then((res) => this._handleResponse(res));
+      .then((res) => this._handleResponse(res));
   }
 }
 
