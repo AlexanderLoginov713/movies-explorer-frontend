@@ -60,7 +60,7 @@ export default function App() {
     mainApi
       .createUser(name, email, password)
       .then(data => {
-        if (data._id) {
+        if (data.email) {
           handleLogin({ email, password });
         }
       })

@@ -23,8 +23,8 @@ export default function SearchForm({ handleSearchSubmit, handleShortFilms, short
   }, [isValid]);
 
   useEffect(() => {
-    if (location.pathname === '/movies' && localStorage.getItem(`${currentUser.email} - movieSearch`)) {
-      const searchValue = localStorage.getItem(`${currentUser.email} - movieSearch`);
+    if (location.pathname === '/movies' && localStorage.getItem(`${currentUser._id} - movieSearch`)) {
+      const searchValue = localStorage.getItem(`${currentUser._id} - movieSearch`);
       values.search = searchValue;
       setIsValid(true);
     }

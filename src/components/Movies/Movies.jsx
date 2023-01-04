@@ -37,14 +37,14 @@ export default function Movies({ setIsLoader, setIsInfoTooltip, savedMoviesList,
       shortMoviesCheckbox ? filterShortMovies(moviesList) : moviesList
     );
     localStorage.setItem(
-      `${currentUser.email} - movies`,
+      `${currentUser._id} - movies`,
       JSON.stringify(moviesList)
     );
   }
 
   function handleSearchSubmit(inputValue) {
-    localStorage.setItem(`${currentUser.email} - movieSearch`, inputValue);
-    localStorage.setItem(`${currentUser.email} - shortMovies`, shortMovies);
+    localStorage.setItem(`${currentUser._id} - movieSearch`, inputValue);
+    localStorage.setItem(`${currentUser._id} - shortMovies`, shortMovies);
 
     if (isAllMovies.length === 0) {
       setIsLoader(true);
@@ -56,6 +56,10 @@ export default function Movies({ setIsLoader, setIsInfoTooltip, savedMoviesList,
             transformMovies(movies),
             inputValue,
             shortMovies
+          );
+          localStorage.setItem(
+            `${currentUser._id} - initialMovies`,
+            JSON.stringify(movies)
           );
         })
         .catch(() =>
@@ -78,11 +82,11 @@ export default function Movies({ setIsLoader, setIsInfoTooltip, savedMoviesList,
     } else {
       setFilteredMovies(initialMovies);
     }
-    localStorage.setItem(`${currentUser.email} - shortMovies`, !shortMovies);
+    localStorage.setItem(`${currentUser._id} - shortMovies`, !shortMovies);
   }
 
   useEffect(() => {
-    if (localStorage.getItem(`${currentUser.email} - shortMovies`) === 'true') {
+    if (localStorage.getItem(`${currentUser._id} - shortMovies`) === 'true') {
       setShortMovies(true);
     } else {
       setShortMovies(false);
@@ -90,13 +94,13 @@ export default function Movies({ setIsLoader, setIsInfoTooltip, savedMoviesList,
   }, [currentUser]);
 
   useEffect(() => {
-    if (localStorage.getItem(`${currentUser.email} - movies`)) {
+    if (localStorage.getItem(`${currentUser._id} - movies`)) {
       const movies = JSON.parse(
-        localStorage.getItem(`${currentUser.email} - movies`)
+        localStorage.getItem(`${currentUser._id} - movies`)
       );
       setInitialMovies(movies);
       if (
-        localStorage.getItem(`${currentUser.email} - shortMovies`) === 'true'
+        localStorage.getItem(`${currentUser._id} - shortMovies`) === 'true'
       ) {
         setFilteredMovies(filterShortMovies(movies));
       } else {
