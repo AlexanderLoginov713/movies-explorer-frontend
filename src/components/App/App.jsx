@@ -335,7 +335,6 @@ export default function App() {
             <Route path='*' element={<Navigate to='/404' replace />} />
           </Routes>
 
-          <Preloader isOpen={isLoader} />
           {handleElementRouteCheck(footerEndpoints) && <Footer />}
 
           <InfoTooltip
@@ -344,9 +343,7 @@ export default function App() {
           />
 
         </CurrentUserContext.Provider>
-
       )}
-
     </div>
   );
 }
