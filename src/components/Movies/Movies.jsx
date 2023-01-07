@@ -26,7 +26,7 @@ export default function Movies({ setIsLoader, setIsInfoTooltip, savedMoviesList,
       setIsInfoTooltip({
         isOpen: true,
         successful: false,
-        text: 'Ничего не найдено.',
+        message: 'Ничего не найдено'
       });
       setNotFound(true);
     } else {

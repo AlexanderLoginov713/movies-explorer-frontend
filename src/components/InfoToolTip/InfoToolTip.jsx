@@ -21,7 +21,7 @@ export default function InfoTooltip({ onClose, status: { isOpen, successful, mes
             : 'info-tooltip__status_fail'
             }`}
         ></div>
-        <h2 className="info-tooltip__title">{ message }</h2>
+        <h2 className="info-tooltip__title">{message}</h2>
         <button
           type="button"
           className="info-tooltip__close-button"

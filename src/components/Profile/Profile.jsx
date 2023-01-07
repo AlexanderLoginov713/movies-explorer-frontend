@@ -52,19 +52,20 @@ export default function Profile({ handleSignOut, handleProfile }) {
             <span className="profile__error">{errors.email || ''}</span>
           </label>
         </div>
-        <div className="profile__button-container">
-          <button
-            type="submit"
-            className={`profile__button-edit ${requirementValidity ? 'profile__button-edit_disabled' : ''}`}
-            disabled={requirementValidity ? true : false}
-          >
-            Редактировать
-          </button>
-          <button type="submit" className="profile__button-exit" onClick={handleSignOut}>
-            Выйти из аккаунта
-          </button>
-        </div>
+        <button
+          type="submit"
+          className={`profile__button-edit ${requirementValidity ? 'profile__button-edit_disabled' : ''}`}
+          disabled={requirementValidity ? true : false}
+        >
+          Редактировать
+        </button>
       </form>
+      <div className="profile__button-container">
+        <button type="submit" className="profile__button-exit" onClick={handleSignOut}>
+          Выйти из аккаунта
+        </button>
+      </div>
+
     </main>
   );
 }

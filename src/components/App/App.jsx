@@ -101,11 +101,23 @@ export default function App() {
   }
 
   function handleSignOut() {
-    setCurrentUser({});
-    setLoggedIn(false);
-    localStorage.clear();
-    navigate('/');
+    mainApi
+      .signout()
+      .then(() => {
+        setCurrentUser({});
+        setLoggedIn(false);
+        localStorage.clear();
+        navigate('/');
+      })
+      .catch((err) =>
+        setIsInfoTooltip({
+          isOpen: true,
+          successful: false,
+          message: err,
+        })
+      );
   }
+
 
   function handleProfile({ name, email }) {
     setIsLoader(true);
@@ -244,6 +256,7 @@ export default function App() {
 
   return (
     <div className="app">
+
       {!load ? (
         <Preloader isOpen={isLoader} />
       ) : (
@@ -333,6 +346,7 @@ export default function App() {
         </CurrentUserContext.Provider>
 
       )}
+
     </div>
   );
 }

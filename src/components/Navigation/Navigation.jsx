@@ -1,10 +1,12 @@
+import { useContext } from 'react';
 import './Navigation.css';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import Hamburger from '../Hamburger/Hamburger.jsx';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) {
   const location = useLocation();
-
+  const currentUser = useContext(CurrentUserContext);
   return (
     <>
       {!loggedIn ? (
@@ -48,7 +50,7 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
             <li className="navigation__item">
               <NavLink to='/profile' className={`navigation__link navigation__link_type_account navigation__link_theme_${location.pathname === '/' ? 'bright' : undefined
                 }`}>
-                Аккаунт
+                {currentUser.name}
               </NavLink>
             </li>
           </ul>

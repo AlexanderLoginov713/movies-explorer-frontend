@@ -23,7 +23,7 @@ export default function SavedMovies({ onDeleteClick, savedMoviesList, setIsInfoT
       setIsInfoTooltip({
         isOpen: true,
         successful: false,
-        text: 'Ничего не найдено.',
+        message: 'Ничего не найдено',
       });
     } else {
       setNotFound(false);

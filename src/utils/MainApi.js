@@ -107,7 +107,21 @@ class MainApi {
     })
       .then(res => this._handleResponse(res));
   }
+
+  signout() {
+    return fetch(`${this._baseUrl}/signout`, {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      credentials: 'include',
+    })
+      .then((res) => this._handleResponse(res));
+  }
 }
+
+
 
 const mainApi = new MainApi(
   {
